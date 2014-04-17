@@ -58,7 +58,8 @@ for (i in 1:nrow(activityLabel)){
 }
 
 
-##6.Calculating the mean of each variable for each activity and subject
+##6.Calculating the mean of each variable for each activity and subject and write them 
+## into two separate files
 
 activityMean <- data.frame(matrix(0, length(levels(data$activity)), ncol(data)-1))
 names(activityMean) <- c("activity", as.character(features$featureName))
@@ -70,5 +71,10 @@ for (i in 1:length(levels(data$activity))){
   activityMean[i,2:ncol(activityMean)] <- colMeans(subset(data, data$activity == levels(data$activity)[i])[,1:(ncol(data)-2)])
 }
 
+for (i in 1:length(levels(data$subjectID))){
+  subjectMean[i,1] <- levels(data$subjectID)[i]
+  subjectMean[i,2:ncol(subjectMean)] <- colMeans(subset(data, data$subjectID ==levels(data$subjectID)[i])[,1:(ncol(data)-2)]) 
+}
 
-
+write.table(activityMean, file = "dataActivityMean.txt")
+write.table(subjectMean, file = "dataSubjectMean.txt")
