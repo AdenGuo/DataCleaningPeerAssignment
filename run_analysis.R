@@ -60,7 +60,15 @@ for (i in 1:nrow(activityLabel)){
 
 ##6.Calculating the mean of each variable for each activity and subject
 
-activityMean <- data.frame(matrix(0, length(levels(data$activity)), ncol(data)-2))
-names(activityMean) <- features$featureName
-subjectMean <- data.frame(matrix(0, length(levels(data$subjectID)), ncol(data)-2))
+activityMean <- data.frame(matrix(0, length(levels(data$activity)), ncol(data)-1))
+names(activityMean) <- c("activity", as.character(features$featureName))
+subjectMean <- data.frame(matrix(0, length(levels(data$subjectID)), ncol(data)-1))
+names(subjectMean) <- c("subjectID", as.character(features$featureName))
+
+for (i in 1:length(levels(data$activity))){
+  activityMean[i,1] <- levels(data$activity)[i]
+  activityMean[i,2:ncol(activityMean)] <- colMeans(subset(data, data$activity == levels(data$activity)[i])[,1:(ncol(data)-2)])
+}
+
+
 
