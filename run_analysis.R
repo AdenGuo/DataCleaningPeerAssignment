@@ -48,6 +48,19 @@ for (i in 1:nrow(activityLabel)){
 }
 data$activity <- activityNames
 data$activity <- as.factor(data$activity)
+data$subjectID <- as.factor(data$subjectID)
 
 ##5. Write this data to a single file
-write.table(data, file = "dataOutput.txt")
+write.table(data, file = "dataAll.txt")
+for (i in 1:nrow(activityLabel)){
+  file = sprintf ("data%s.txt", as.character(activityLabel$activityName[i]))
+  write.table(subset(data, data$activity == activityLabel$activityName[i]), file = file)
+}
+
+
+##6.Calculating the mean of each variable for each activity and subject
+
+activityMean <- data.frame(matrix(0, length(levels(data$activity)), ncol(data)-2))
+names(activityMean) <- features$featureName
+subjectMean <- data.frame(matrix(0, length(levels(data$subjectID)), ncol(data)-2))
+
