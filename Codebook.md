@@ -9,7 +9,7 @@
 
 ## Some important variables after you run the code.
 
-*dataAll ---All the data containing test and training set of all the features, object ID and activity label.
-*data ---The data set demanded by assignment which only contains means and standard deviations of the features.
-*activityMean ---the means corresponding to different activities
-*subjectMean ---the means corresponding to each subject
+* dataAll ---All the data containing test and training set of all the features, object ID and activity label.
+* data ---The data set demanded by assignment which only contains means and standard deviations of the features.
+* activityMean ---the means corresponding to different activities
+* subjectMean ---the means corresponding to each subject
