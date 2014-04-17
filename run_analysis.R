@@ -49,3 +49,5 @@ for (i in 1:nrow(activityLabel)){
 data$activity <- activityNames
 data$activity <- as.factor(data$activity)
 
+##5. Write this data to a single file
+write.table(data, file = "dataOutput.txt")
