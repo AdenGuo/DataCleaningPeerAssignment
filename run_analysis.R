@@ -46,3 +46,6 @@ activityNames <- data$activity
 for (i in 1:nrow(activityLabel)){
   activityNames <- gsub(activityLabel$activityCode[i], activityLabel$activityName[i], activityNames)
 }
+data$activity <- activityNames
+data$activity <- as.factor(data$activity)
+
