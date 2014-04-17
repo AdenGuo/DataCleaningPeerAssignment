@@ -19,7 +19,7 @@ This repo is used to do assignment from coursera course "Getting and Cleaning Da
 
 ###Useage of the programe
 1.Download run_analysis.R and the whole folder UCI HAR Dataset, you can download the rar file UCI HAR Dataset.rar instead of the folder then directly (without putting it in any folders) extract into the folder where you put run_analysis.
-2.Open RStudio, type command: setwd("<the folder you put the run_analysis.R>"). 
+2.Open RStudio, type command: setwd("the folder you put the run_analysis.R"). 
 3.Open run_analysis.R and run all the line.
 
 
